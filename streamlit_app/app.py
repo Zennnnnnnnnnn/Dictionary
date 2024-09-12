@@ -209,5 +209,5 @@ if st.session_state.uploaded_file is not None:
                 else:
                     st.write("None")
 
-                st.write(f"**⭐ Similarity Score:** {pair.get('Similarity', 0.0):.2f}")
+                st.write(f"**⭐ Similarity Score Using GTE-Large Model:** {pair.get('Similarity', 0.0):.2f}")
                 st.write(f"---\n")
