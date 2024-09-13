@@ -6,7 +6,7 @@ Bước 1:
 - pip3 install streamlit
 
 Bước 2: 
--	Vào thư mục streamlit_app
+-	Vào thư mục streamlit_app (Vào github https://github.com/Zennnnnnnnnnn/Dictionary/tree/main để tải code về)
 -	Chuột phải, mở terminal
 -       Tải các thư viện cần thiết - pip install xml.etree.ElementTree
                                    - pip install scikit-learn
