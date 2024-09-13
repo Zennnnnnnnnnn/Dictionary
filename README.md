@@ -2,8 +2,11 @@
 Bước 1: 
 -	Cài python
 -	Cài streamlit
+-	
 python3 -m venv streamlit
+
 source streamlit/bin/activate
+
 pip3 install streamlit
 
 Bước 2: 
