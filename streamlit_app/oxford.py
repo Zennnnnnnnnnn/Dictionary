@@ -88,7 +88,7 @@ def extract_example_text(node):
     result = re.sub(r'\s+', ' ', result).strip()
 
     return result
-def meaningex(d_ud):
+def meaningex(d_ud, root):
     """
     Hàm nhập vào 1 mảng 1 node <d> hay <ud>, trả về nghĩa tiếng Anh, tiếng Việt, và các ví dụ của 1 nghĩa của node <d> đó.
     """
