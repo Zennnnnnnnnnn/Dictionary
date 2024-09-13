@@ -8,9 +8,14 @@ Bước 1:
 Bước 2: 
 -	Vào thư mục streamlit_app
 -	Chuột phải, mở terminal
--       Tải các thư viện cần thiết - pip install openai==0.28
+-       Tải các thư viện cần thiết - pip install xml.etree.ElementTree
                                    - pip install scikit-learn
                                    - pip install nltk
+                                   - pip install numpy
+                                   - pip install transformers
+                                   - pip install torch
+                                   - pip install re
+
 -	Chạy streamlit run app.py
 
 
