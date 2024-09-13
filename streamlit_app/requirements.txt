@@ -8,6 +8,5 @@ plotly
 transformers
 streamlit
 nltk
-xml.etree.ElementTree
 torch
 re
