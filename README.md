@@ -5,6 +5,7 @@ Bước 1:
 python3 -m venv streamlit
 source streamlit/bin/activate
 pip3 install streamlit
+
 Bước 2: 
 -	Vào thư mục streamlit_app
 -	Chuột phải, mở terminal
