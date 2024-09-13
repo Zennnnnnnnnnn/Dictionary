@@ -88,48 +88,75 @@ def extract_example_text(node):
     result = re.sub(r'\s+', ' ', result).strip()
 
     return result
+def meaningex(d_ud):
+    """
+    Hàm nhập vào 1 mảng 1 node <d> hay <ud>, trả về nghĩa tiếng Anh, tiếng Việt, và các ví dụ của 1 nghĩa của node <d> đó.
+    """
 
-def meaningex(d_ud, root):
-    word_type = d_ud.find(".//p-g")
-    if word_type is not None:
-        type_text = textprocess(word_type.text.strip()) if word_type.text else ""
-    else:
-        type_text = ""
+    #print("@ Hàm meaningex(d_ud)")
 
+    # Nghĩa tiếng Anh
+    #print(" * Nghĩa tiếng Anh: ", end="")
     em = ""
+    dhs = ""
+    
     if d_ud.tag in ["d", "ud"]:
-        outside_text = text_outside_children(d_ud).strip()
-        if outside_text:
-            em = textprocess(outside_text)
-        else:
-            for dud in d_ud.iter():
-                if dud.tag not in ["d", "ud", 'txt_v_s_srf', 'symbol', "space", 'meaning', "z_xr", "i", "z", "xr", "xh", "cap_in_xh"]:
-                    text = textprocess(dud.text.strip()) if dud.text else ""
-                    tail = textprocess(dud.tail.strip()) if dud.tail else ""
-                    em += text + tail
-    elif d_ud.tag in ["xr"]:
+        em = text_outside_children(d_ud)
+        print(em, end="")
+
+        dhs_node = d_ud.find(".//dhs")
+        if dhs_node is not None:
+            dhs = "\'" + dhs_node.text + "\'"
+            print(" dhs = ", dhs)
+        
         for dud in d_ud.iter():
-            text = textprocess(dud.text.strip()) if dud.text else ""
-            tail = textprocess(dud.tail.strip()) if dud.tail else ""
+            if dud.tag not in ["d", "ud", "dhs", "txt_v_s_srf", 'symbol', "space", 'meaning', "z_xr", "i", "z", "xr", "xh", "cap_in_xh"]:
+                text = dud.text if dud.text else ""
+                tail = dud.tail if dud.tail else ""
+                em += " " + text + tail
+
+        em = em.strip() + " " + dhs
+        print(" final em = ", em)
+    
+    elif d_ud.tag == "xr":
+        for dud in d_ud.iter():
+            text = dud.text.strip() if dud.text else ""
+            tail = dud.tail.strip() if dud.tail else ""
+            print(text, tail, " ", end="")
             em += text + tail
 
+        em = em.strip()
+
+    # Nghĩa tiếng Việt
     vm = ""
+    print("")  # Để tắt end=""
     txt_v_s_srf = d_ud.find(".//txt_v_s_srf")
+
     if txt_v_s_srf is not None:
+        #print("@ Nghĩa tiếng Việt: ", end="")
         for txt in txt_v_s_srf.iter():
-            text = textprocess(txt.text.strip()) if txt.text else ""
-            tail = textprocess(txt.tail.strip()) if txt.tail else ""
-            vm = text + tail
+            text = txt.text.strip() if txt.text else ""
+            tail = txt.tail.strip() if txt.tail else ""
+            vm += text + tail
+            print(" vm= ", vm)
+        
+        vm = vm.strip()
+        print(" vm 2= ", vm)
+    
+    # Các ví dụ
+    print()  # Để tắt end=""
+    vidu = findfather(d_ud).findall(".//x")
+    print("vidu = ", vidu)
+    
+    ex = []  # Lưu tất cả các ví dụ của 1 nghĩa tiếng Anh
 
-    ex = []
-    # Extract examples
-    vidu = findfather(d_ud, root).findall(".//x")
-    for vd in vidu:
-        example_text = extract_example_text(vd)
-        if example_text:
-            ex.append(example_text)
-
-    return em, vm, ex
+    for x in vidu:
+        kq1 = ''.join(x.itertext())  # Nối tất cả các văn bản
+        kq2 = ' '.join(kq1.split())  # Làm sạch văn bản
+        ex.append(kq2)
+        print("ex = ", ex)
+    
+    return em, vm, ex  # Trả về chuỗi định nghĩa tiếng Anh, định nghĩa tiếng Việt và mảng các ví dụ của 1 nghĩa của 1 loại từ của 1 từ
 
 def thongtin1tu(word, root):
     thongtin = {
