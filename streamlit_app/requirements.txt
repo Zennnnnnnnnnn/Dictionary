@@ -9,4 +9,3 @@ transformers
 streamlit
 nltk
 torch
-re
