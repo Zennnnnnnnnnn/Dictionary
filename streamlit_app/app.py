@@ -113,6 +113,10 @@ if st.session_state.uploaded_file is not None:
                 st.write(f"**📖 Description from Oxford Dictionary:** {item1.get('Description', 'N/A')}")
                 st.write(f"**📜 Description from WordNet:** {item2.get('Description', 'N/A')}")
                 st.write(f"**🌐 Meaning_Vietnamese from Oxford Dictionary:** {item1.get('Meaning_Vietnamese', 'N/A')}")
+                st.write(f"**🔑 Synonyms from WordNet:** {', '.join(item2.get('Synonyms', []))}")
+                st.write(f"**🚫 Antonyms from WordNet:** {', '.join(item2.get('Antonyms', []))}")
+                st.write(f"**👨‍👩‍👧‍👦 Parents from WordNet:** {', '.join(item2.get('Parents', []))}")
+                st.write(f"**👶 Children from WordNet:** {', '.join(item2.get('Children', []))}")
 
                 # Display examples from Oxford Dictionary
                 examples_oxford = item1.get('Examples', [])
