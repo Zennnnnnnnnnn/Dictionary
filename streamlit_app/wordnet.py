@@ -23,7 +23,7 @@ def create_english_dictionary(word):
                 'a': 'adjective',
                 'r': 'adverb'
             }
-            part_of_speech = pos_mapping.get(pos, 'unknown')
+            part_of_speech = pos_mapping.get(pos)
 
             entry = {
                 'Synset_ID': synset_id,
