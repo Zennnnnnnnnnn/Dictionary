@@ -59,14 +59,6 @@ Welcome to the Oxford Dictionary and WordNet Integration tool! Here’s a quick 
 
 Happy Analyzing!
 """)
-### **4. Tips:**
-
-- Ensure that the XML file is correctly formatted and contains the necessary information for accurate comparisons.
-- Double-check the spelling of the word you enter to get accurate results.
-- Review both matched and unmatched results to understand the differences between the sources.
-
-Happy Analyzing!
-""")
 
 st.write(f"⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ⭐ ")
 
