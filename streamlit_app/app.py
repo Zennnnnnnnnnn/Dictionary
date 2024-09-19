@@ -17,7 +17,7 @@ if 'previous_search' not in st.session_state:
     st.session_state.previous_search = []
 
 # Streamlit UI
-st.title("Oxford Dictionary and WordNet Integration")
+st.title("WordNet Dictionary and Oxford Integration")
 
 st.markdown("""
 ## 📚 User Guide
