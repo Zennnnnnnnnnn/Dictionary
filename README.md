@@ -23,7 +23,7 @@ Bước 3:
 
 Hoặc sử dụng link: https://owdictionary.streamlit.app/
 
-* Hướng dẫn sử dung Wordnet_oxford_dictionary_final.ipynb
+Hướng dẫn sử dung Wordnet_oxford_dictionary_final.ipynb
 
 - Tải Data dạng XML lên GG Colab
 
