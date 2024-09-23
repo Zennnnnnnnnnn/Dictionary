@@ -22,3 +22,12 @@ Bước 3:
 -	Sử dụng chương trình
 
 Hoặc sử dụng link: https://owdictionary.streamlit.app/
+
+* Hướng dẫn sử dung Wordnet_oxford_dictionary_final.ipynb
+
+- Tải Data dạng XML lên GG Colab
+
+- Chạy lần lượt các phần.
+
+- Nhập tên Data ở phần 5 thay thế cho /any.xml
+
